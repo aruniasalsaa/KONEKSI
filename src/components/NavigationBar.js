@@ -30,7 +30,7 @@ function NavigationBar() {
                             <Nav.Link href="#tracerstudy" className='navbar-style'>TracerStudy</Nav.Link>
                         </Nav>
                         <div>
-                            <Button onClick={() => navigate('/login')} variant="outline-light" size="sm" className="w-100 w-lg-auto mt-3 mt-lg-2 mb-3 mb-lg-2">Masuk</Button>{' '}
+                            <Button onClick={() => navigate('/masuk')} variant="outline-light" size="sm" className="w-100 w-lg-auto mt-3 mt-lg-2 mb-3 mb-lg-2">Masuk</Button>{' '}
                         </div>
                     </Navbar.Collapse>
 

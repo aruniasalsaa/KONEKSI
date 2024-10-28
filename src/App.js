@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import Beranda from "./pages/Beranda";
 import Login from "./pages/Login";
 import UbahPassword from "./pages/UbahPassword";
@@ -6,20 +6,30 @@ import DashboardAlumni from "./pages/DashboardAlumni";
 
 
 function App() {
-  
+  const router = createBrowserRouter([
+    {
+      path: '/',
+      index: true,
+      element: <Beranda />,
+    },
+    {
+      path: '/masuk',
+      element: <Login />,
+    },
+    {
+      path: '/ubah-kata-sandi',
+      element: <UbahPassword />,
+    },
+    {
+      path: '/dashboard-alumni',
+      element: <DashboardAlumni />,
+    },
+  ]);
+
   return (
     <div>
-      <BrowserRouter>
-        <Routes>
-          <Route index element={<Beranda />} />
-          <Route path="/beranda" element={<Beranda />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/ubahkatasandi" element={<UbahPassword />} />
-          <Route path="/dashboardalumni" element={<DashboardAlumni />} />
-        </Routes>
-      </BrowserRouter>
+      <RouterProvider router={router} />
     </div>
-
   );
 }
 export default App;
