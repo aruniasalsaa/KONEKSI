@@ -23,11 +23,11 @@ function NavigationBar() {
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className='mx-auto'>
-                            <Nav.Link href="#beranda" className='navbar-style'>Beranda</Nav.Link>
-                            <Nav.Link href="#berita" className='navbar-style'>Berita</Nav.Link>
-                            <Nav.Link href="#events" className='navbar-style'>Events</Nav.Link>
-                            <Nav.Link href="#programalumni" className='navbar-style'>Program</Nav.Link>
-                            <Nav.Link href="#tracerstudy" className='navbar-style'>TracerStudy</Nav.Link>
+                            <Nav.Link onClick={() => navigate('/')} className='navbar-style'>Beranda</Nav.Link>
+                            <Nav.Link onClick={() => navigate('/berita')} className='navbar-style'>Berita</Nav.Link>
+                            <Nav.Link onClick={() => navigate('/acara')} className='navbar-style'>Acara</Nav.Link>
+                            <Nav.Link onClick={() => navigate('/program-alumni')}  className='navbar-style'>Program</Nav.Link>
+                            <Nav.Link className='navbar-style'>TracerStudy</Nav.Link>
                         </Nav>
                         <div>
                             <Button onClick={() => navigate('/masuk')} variant="outline-light" size="sm" className="w-100 w-lg-auto mt-3 mt-lg-2 mb-3 mb-lg-2">Masuk</Button>{' '}

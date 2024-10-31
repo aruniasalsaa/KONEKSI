@@ -13,7 +13,7 @@ function BerandaEvents({ images }) {
       <h1 className='beranda-title'>
         Events
       </h1>
-      <Carousel activeIndex={index} onSelect={handleSelect}>
+      <Carousel activeIndex={index} onSelect={handleSelect} > 
         {images.map((image, i) => (
           <Carousel.Item key={i}>
             <SlideImage image={image.src} text={image.text} />

@@ -11,7 +11,7 @@ import myImage1 from '../assets/images/photo1.jpeg';
 import myImage2 from '../assets/images/photo2.jpeg';
 import myImage3 from '../assets/images/photo3.jpeg';
 
-const Beranda = () => {
+function Beranda()  {
     const beritaBeranda = [
         {
             image: {

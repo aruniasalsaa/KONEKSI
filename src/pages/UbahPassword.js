@@ -3,8 +3,9 @@ import "../styles/login.css";
 import { useState } from 'react';
 import { ToastContainer, toast, Slide } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import Alerts from '../components/Alerts'; // Import the Alerts component
+import Alerts from '../components/Alerts';
 import { useNavigate } from 'react-router-dom';
+import axios from "axios";
 
 function UbahPassword() {
     const navigate = useNavigate();
@@ -28,36 +29,45 @@ function UbahPassword() {
         setShowPassword3(!showPassword3);
     };
 
-    const ubahPassword = () => {
-        // Check if any fields are empty
+    const ubahPassword = async () => {
         if (!username || !oldPassword || !newPassword || !confirmPassword) {
             setPeringatanInvalid("Semua kolom harus diisi!");
-            return; // Prevent further execution
+            return;
         }
 
-        // If new password and confirm password don't match
         if (newPassword !== confirmPassword) {
             setPeringatanInvalid("Kata sandi baru dan ulangi kata sandi baru tidak cocok!");
             return;
         }
 
-        // Reset warning and show success message
-        setPeringatanInvalid(""); // Clear any previous alerts
-        toast.success("Kata Sandi Berhasil Diubah!", {
-            position: "top-right",
-            hideProgressBar: true,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "light",
-            transition: Slide,
-        });
+        try {
+            const response = await axios.patch("http://localhost:2000/api/v1/auth/changePassword", {
+                username: username,
+                oldPassword: oldPassword,
+                newPassword: newPassword,
+                newConfirmPassword: confirmPassword
+            })
 
-        // Redirect to login after delay
-        setTimeout(() => {
-            navigate('/login');
-        }, 3000);
+            console.log(response.data);
+            setPeringatanInvalid("");
+            toast.success("Kata Sandi Berhasil Diubah!", {
+                position: "top-right",
+                hideProgressBar: true,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+                transition: Slide,
+            });
+           
+            setTimeout(() => {
+                navigate('/masuk');
+            }, 3000);
+        }catch (error){
+            console.log("Ubah Kata Sandi Error", error);
+            setPeringatanInvalid("Ubah kata sandi gagal. Silakan periksa kembali data yang diinput.")
+        }        
     };
 
     return (
@@ -68,15 +78,15 @@ function UbahPassword() {
                     <h5>Selamat datang di Sistem Informasi Alumni Universitas YARSI</h5>
                     <p className='mb-5'>Masukkan detail Anda untuk mengubah kata sandi Anda</p>
                 </div>
-                {peringatanInvalid && <Alerts peringatan={peringatanInvalid} />} {/* Display Alerts if there's a warning */}
+                {peringatanInvalid && <Alerts peringatan={peringatanInvalid} />}
                 <Form>
                     <Form.Group className="mb-3 mx-4" controlId="formGroupUsername">
-                        <Form.Control 
-                            className='label-login' 
-                            type="text" 
-                            placeholder="Masukkan Username" 
+                        <Form.Control
+                            className='label-login'
+                            type="text"
+                            placeholder="Masukkan Username"
                             value={username} // Bind state
-                            onChange={(e) => setUsername(e.target.value)} // Update state
+                            onChange={(e) => setUsername(e.target.value)} 
                         />
                     </Form.Group>
 
@@ -86,8 +96,8 @@ function UbahPassword() {
                                 className='label-login'
                                 type={showPassword1 ? "text" : "password"}
                                 placeholder="Masukkan Kata Sandi Lama"
-                                value={oldPassword} // Bind state
-                                onChange={(e) => setOldPassword(e.target.value)} // Update state
+                                value={oldPassword}
+                                onChange={(e) => setOldPassword(e.target.value)}
                             />
                             <InputGroup.Text
                                 onClick={togglePasswordVisibility1}
@@ -104,7 +114,7 @@ function UbahPassword() {
                                 className='label-login'
                                 type={showPassword2 ? "text" : "password"}
                                 placeholder="Masukkan Kata Sandi Baru"
-                                value={newPassword} // Bind state
+                                value={newPassword}
                                 onChange={(e) => setNewPassword(e.target.value)} // Update state
                             />
                             <InputGroup.Text
@@ -122,8 +132,8 @@ function UbahPassword() {
                                 className='label-login'
                                 type={showPassword3 ? "text" : "password"}
                                 placeholder="Ketik Ulang Kata Sandi Baru"
-                                value={confirmPassword} // Bind state
-                                onChange={(e) => setConfirmPassword(e.target.value)} // Update state
+                                value={confirmPassword}
+                                onChange={(e) => setConfirmPassword(e.target.value)}
                             />
                             <InputGroup.Text
                                 onClick={togglePasswordVisibility3}

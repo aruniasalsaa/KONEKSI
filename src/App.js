@@ -3,6 +3,10 @@ import Beranda from "./pages/Beranda";
 import Login from "./pages/Login";
 import UbahPassword from "./pages/UbahPassword";
 import DashboardAlumni from "./pages/DashboardAlumni";
+import Berita from './pages/Berita';
+import Acara from './pages/Acara';
+import ProgramAlumni from './pages/ProgramAlumni';
+
 
 
 function App() {
@@ -24,12 +28,25 @@ function App() {
       path: '/dashboard-alumni',
       element: <DashboardAlumni />,
     },
+    {
+      path: '/berita',
+      element: <Berita/>
+    },
+    {
+      path: '/acara',
+      element: <Acara/>
+    },
+    {
+      path: '/program-alumni',
+      element: <ProgramAlumni/>
+    },
   ]);
 
   return (
     <div>
       <RouterProvider router={router} />
     </div>
+
   );
 }
 export default App;

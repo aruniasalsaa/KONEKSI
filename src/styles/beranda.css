@@ -15,6 +15,10 @@
     padding: 20px;
 }
 
+.beranda-title{
+    margin-left: 3%;
+}
+
 .title-info {
     font-size: 1.5rem; /* Gunakan rem untuk ukuran font yang lebih responsif */
     font-weight: 500;
@@ -91,19 +95,15 @@
         font-size: 1.2rem; /* Ukuran font lebih kecil di layar kecil */
         margin: 10px; /* Margin lebih kecil */
     }
-
     .content-info {
         margin: 0 10px; /* Margin lebih kecil */
     }
-
     .beranda-images {
         width: 80%; /* Lebar lebih besar di layar kecil */
     }
-
     .galeri-foto {
         padding: 10px; /* Padding lebih kecil di layar kecil */
     }
-
     .beranda-news,
     .display-component {
         padding: 20px; /* Padding lebih kecil */

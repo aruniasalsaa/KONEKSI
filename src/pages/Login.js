@@ -17,14 +17,12 @@ function Login() {
     };
 
     const handleLogin = async () => {
-        // Cek apakah username atau password kosong
         if (!username || !password) {
             setPeringatanInvalid("Username dan Kata Sandi tidak boleh kosong");
+            return;
         } else {
-            // Reset peringatan
             setPeringatanInvalid("");
         }
-
         try {
             const response = await axios.post("http://localhost:2000/api/v1/auth/login", {
                 username: username,
@@ -88,5 +86,4 @@ function Login() {
         </Container>
     );
 }
-
 export default Login;

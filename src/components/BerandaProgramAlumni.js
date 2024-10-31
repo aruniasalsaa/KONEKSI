@@ -6,7 +6,7 @@ function BerandaProgramAlumni({ programAlumni }) {
             <h1 className='beranda-title'>
                 Program Alumni
             </h1>
-            <Row className="justify-content-center">
+            <Row className="justify-content-center" style={{ paddingTop: '10px' }}>
                 {programAlumni.map((program, i) => (
                     <Col md={4} className='beranda-card d-flex justify-content-center' key={i}>
                         <Card style={{ width: '18rem' }}>
