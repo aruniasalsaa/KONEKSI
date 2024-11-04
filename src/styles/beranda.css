@@ -1,0 +1,110 @@
+.navbar-style {
+    background-color: #38524C;
+    color: white !important;
+    justify-content: center;
+}
+
+.navbar-style .dropdown-toggle {
+    color: white !important;
+    margin-right: 20px;
+}
+
+.navbar-style .nav-link {
+    margin-right: 20px;
+}
+
+.navbar-style:hover {
+    color: #CBDCED !important;
+}
+
+.informasi-beranda {
+    background: #CBDCED;
+    margin-top: 70px;
+    padding: 20px;
+}
+
+.beranda-container{
+    margin-bottom: 80px;
+}
+
+.beranda-title {
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.title-info {
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin: 30px;
+}
+
+.content-info {
+    margin: 30px;
+    text-align: justify;
+    max-width: 100%;
+}
+
+.beranda-images {
+    margin: 10px;
+    width: 100%;
+    height: auto;
+}
+
+.beranda-news {
+    background: #ecf0f1;
+    margin-top: 30px;
+    padding-bottom: 100px;
+}
+
+.display-component {
+    background: #CBDCED;
+    margin-top: 30px;
+    padding: 50px;
+}
+
+.text-style {
+    text-align: justify;
+}
+
+.footer-style {
+    padding: 30px;
+    background-color: #38524C;
+    color: white;
+    text-align: justify;
+}
+
+.button-card {
+    background-color: #323D42;
+    margin-top: auto;
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+}
+
+.carousel-image-container {
+    width: 100%;
+}
+
+.carousel-image-container img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+}
+
+.slide-style{
+    margin-top: 100px;
+}
+
+.card-image{
+    height: 250px;
+    object-fit: cover; 
+}
+
+
+
+.custom-hr{
+    border-top: 5px solid #38524C !important;
+}
